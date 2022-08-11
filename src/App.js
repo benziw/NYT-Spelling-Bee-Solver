@@ -1,10 +1,11 @@
 import './css/App.css';
 import Hive from './components/Hive';
 import { useState } from 'react';
+import WordList from './components/WordList';
 
 export default function App() {
 
-  const [letters, setLetters] = useState('');
+  const [letters, setLetters] = useState('_______');
 
   const textOnChange = (e) => {
     let str = e.target.value;
@@ -22,6 +23,8 @@ export default function App() {
       <h1>{`${letters}`}</h1>
 
       <Hive letters={letters}/>
+
+      <WordList letters={letters}/>
     </div>
   );
 }

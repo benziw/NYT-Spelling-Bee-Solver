@@ -8,9 +8,9 @@ export default function Hive(props){
   //let letters = ['i','o','z','e','n','m','d'];
 
   return (
-    <div class='hive'>
+    <div className='hive'>
       {props.letters.split("").map((letter , i) => 
-        <Hex className={`hive${i}`} letter={letter} color={pickColor(i)} />  
+        <Hex className={`hive${i}`} letter={letter} color={pickColor(i)} key={i} />  
       )}
     </div>
     
