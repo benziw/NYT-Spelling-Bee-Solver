@@ -1,0 +1,14 @@
+.hive {
+  width: 261px;
+  height: 271px;
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
