@@ -6,3 +6,17 @@
   height: calc(100% / 3);
 }
 
+.cell-letter {
+  font-weight: 700;
+  font-size: 1.875em;
+  text-anchor: middle;
+  text-transform: uppercase;
+  pointer-events: none;
+
+  position: absolute;
+  z-index: 9999;
+}
+
+:not(svg) {
+  transform-origin: 0px 0px;
+}

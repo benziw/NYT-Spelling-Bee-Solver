@@ -1,10 +1,27 @@
 import './css/App.css';
 import Hive from './components/Hive';
+import { useState } from 'react';
 
 export default function App() {
+
+  const [letters, setLetters] = useState('');
+
+  const textOnChange = (e) => {
+    let str = e.target.value;
+    while(str.length < 7){
+      str += "_";
+    }
+    setLetters(str); 
+  }
+
   return (
     <div className="App">
-      <Hive/>
+
+      <input onChange={textOnChange} maxLength='7'></input>
+      <h4>{`Enter letters above. First letter will be center letter`}</h4>
+      <h1>{`${letters}`}</h1>
+
+      <Hive letters={letters}/>
     </div>
   );
 }

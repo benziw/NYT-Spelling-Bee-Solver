@@ -1,13 +1,17 @@
 import '../css/Hive.css';
 import Hex from "./Hex";
 
-export default function Hive(){
+const pickColor = (i) => i === 0 ? '#f7da20' : '#e6e6e6';
 
-  let letters = ['i','o','z','e','n','m','d'];
+export default function Hive(props){
+
+  //let letters = ['i','o','z','e','n','m','d'];
 
   return (
     <div class='hive'>
-      <Hex letter='o' color='#f7da21' svgNum='0'/>
+      {props.letters.split("").map((letter , i) => 
+        <Hex className={`hive${i}`} letter={letter} color={pickColor(i)} />  
+      )}
     </div>
     
   );

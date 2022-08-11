@@ -12,3 +12,35 @@ svg {
   height: 100%;
   width: 100%;
 }
+
+svg:not(:root) {
+  overflow: hidden !important;
+}
+
+.hex:nth-child(1) {
+  transform: translate(0, 0);
+}
+
+.hex:nth-child(2) {
+  transform: translate(0, -100%);
+}
+
+.hex:nth-child(3) {
+  transform: translate(75%, -50%);
+}
+
+.hex:nth-child(4) {
+  transform: translate(75%, 50%);
+}
+
+.hex:nth-child(5) {
+  transform: translate(0, 100%);
+}
+
+.hex:nth-child(6) {
+  transform: translate(-75%, 50%);
+}
+
+.hex:nth-child(7) {
+  transform: translate(-75%, -50%);
+}
