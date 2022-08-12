@@ -32,7 +32,7 @@ export default function WordList(props){
         generatePossibleWords();
 
         //query words_dictionary.json
-
+        
 
         
     }
