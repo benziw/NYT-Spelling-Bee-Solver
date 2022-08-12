@@ -3,11 +3,11 @@ import { useState } from 'react';
 export default function WordList(props){
 
     const [sevenLetters, setSevenLetters] = useState(true);
+    const [gotWords,setGotWords] = useState(true);
+    const [realWords, setRealWords] = useState([]);
 
     const letters = props.letters.replaceAll("_","");
-
-    let possibleWords = [];
-    let wordsFromAPI = [];
+    //let wordsFromAPI = [];
 
     const generatePossibleWords = (ltrs) => {
         
@@ -15,13 +15,13 @@ export default function WordList(props){
     
     const getWordsOnClick = (e) => {
 
-        console.log(letters);
-        console.log(sevenLetters);
+        //console.log(letters);
+        //console.log(sevenLetters);
 
         //check sevenletters
         if(letters.length < 7){
             setSevenLetters(false);
-            console.log('state changed');
+            //console.log('state changed');
             return null;
         }
         else{
@@ -31,7 +31,10 @@ export default function WordList(props){
         //first generate all possible words
         generatePossibleWords();
 
-        //query https://dictionaryapi.dev/ to check real words
+        //query words_dictionary.json
+
+
+        
     }
 
     return(
@@ -43,9 +46,7 @@ export default function WordList(props){
                 <p>must enter seven letters</p>
             }
 
-            {wordsFromAPI.map((word) => 
-                <p>{word}</p>
-            )}
+            {/* {realWords.map(word => <p key={word}>word</p>)} */}
         </div>
     )
 

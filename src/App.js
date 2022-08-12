@@ -20,7 +20,7 @@ export default function App() {
 
       <input onChange={textOnChange} maxLength='7'></input>
       <h4>{`Enter letters above. First letter will be center letter`}</h4>
-      <h1>{`${letters}`}</h1>
+      <h1>{letters.toUpperCase()}</h1>
 
       <Hive letters={letters}/>
 
