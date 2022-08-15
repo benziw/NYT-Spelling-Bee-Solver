@@ -46,7 +46,7 @@ export default function WordList(props){
                 <p>must enter seven letters</p>
             }
 
-            {/* {realWords.map(word => <p key={word}>word</p>)} */}
+            {/* { {realWords.map(word => <p key={word}>word</p>)} } */}
         </div>
     )
 
