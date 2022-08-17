@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 
-const lwJSON = require('./public/letters_words.json');
+const lwJSON = require('./public/lettersWords.json');
 
 app.use(express.static("public", options={})); 
 app.use(cors())

@@ -1,8 +1,11 @@
 import json
+import re
+from tracemalloc import start
 
-dictjson = open('./words_dictionary.json',"r")
-wordDict = json.load(dictjson)
-dictjson.close()
+allWordsJSON = open('./words_dictionary.json', 'r')
+allWordsDict = json.load(allWordsJSON)
+allWordsJSON.close()
+
 
 def hasThreeConsecutive(word):
   for t in zip(word, word[1:], word[2:]):
@@ -10,58 +13,40 @@ def hasThreeConsecutive(word):
       return True
   return False
 
+
 def isBadWord(word):
   return len(word) < 4 or hasThreeConsecutive(word)
 
-for key in list(wordDict.keys()):
-  if isBadWord(key):
-    del wordDict[key]
 
-cleanedjson = json.dumps(wordDict, indent=2)
-cleanedjsonfile = open('./cleaned_dictionary.json','w')
-cleanedjsonfile.write(cleanedjson)
-cleanedjsonfile.close()
-cleanedjsonfile = open('./cleaned_dictionary.json','r')
-cleanedDict = json.load(cleanedjsonfile)
+def strToSort(str):
+  return "".join(sorted([*str]))
 
-letterswordsdict = {}
 
 def strToUniqueSort(str):
   return "".join(sorted(list(set([*str]))))
 
-for word in list(cleanedDict.keys()):
+wordsList = []
+for word in allWordsDict.keys():
 
-  wordKey = strToUniqueSort(word)
+    #create list of all words from dictionary that count for spelling bee
+    if not isBadWord(word):
+        wordsList += [word]
 
-  if len(wordKey) > 7:
-    pass
-  elif wordKey in letterswordsdict.keys():
-    letterswordsdict[wordKey] += [word]
-  else:
-    letterswordsdict[wordKey] = [word]
+#populate keys in output dict
+outputDict = {k : [] for k in list(set(map(strToUniqueSort, wordsList))) if len(k) == 7}
 
-# def getContainedIn(item, lst):
+#populate values in output dict
+allKeys = "#".join(outputDict.keys())
+allKeys = '#' + allKeys + '#'
+for word in wordsList:
 
-#   for x in lst:
-#     if item in x:
-#       return x
+  startIndices = [w.start() for w in re.finditer(strToUniqueSort(word),allKeys)]
+  for ind in startIndices:
+    startIndex = allKeys[0:ind].rindex('#') + 1
+    #print(f"adding val {word} to key {allKeys[startIndex:startIndex+7]}")
+    outputDict[allKeys[startIndex:startIndex+7]] += [word]
 
-#   return False
-
-# keysLenSeven = list(filter(lambda str : len(str) == 7,letterswordsdict.keys()))
-
-# for charKey in list(filter(lambda str : len(str) < 7, letterswordsdict.keys())):
-
-#   containKey = getContainedIn(charKey,keysLenSeven)
-
-#   if containKey:
-#     letterswordsdict[containKey] += letterswordsdict[charKey]
-#     del letterswordsdict[charKey]
-
-letterswordsdict_exactly7 = {k : v for k,v in letterswordsdict.items() if len(k) == 7}
-
-
-letterswordsdump = json.dumps(letterswordsdict_exactly7, indent=2)
-letterswordsjson = open('./letters_words.json','w')
-letterswordsjson.write(letterswordsdump)
-letterswordsjson.close()
+    
+outWordsJSON = open('./lettersWords.json','w')
+outWordsJSON.write(json.dumps(outputDict, indent=2))
+outWordsJSON.close()
