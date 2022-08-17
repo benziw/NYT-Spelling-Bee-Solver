@@ -47,7 +47,7 @@ export default function WordList(props) {
       }
 
       {realWords.map((word) => (
-        <p>{word}</p>
+        <p key={word}>{word}</p>
       ))}
 
     </div>

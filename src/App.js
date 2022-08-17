@@ -1,34 +1,38 @@
 import './css/App.css';
-import Hive from './components/Hive';
+
 import { useState } from 'react';
+
+import Hive from './components/Hive';
 import WordList from './components/WordList';
 
-import Axios from 'axios';
 
 export default function App() {
 
   const [letters, setLetters] = useState('_______');
-  let lettersWordsJSON = {};
 
   const textOnChange = (e) => {
-    let str = e.target.value;
+    let str = e.target.value.replace(/[^a-z]/gi, '');
+    let strLower = str.toLowerCase()
+    if (strLower.indexOf(strLower[strLower.length-1]) !== strLower.length-1){
+      str = str.slice(0,-1);
+    }
+
     while(str.length < 7){
       str += "_";
     }
     setLetters(str); 
   }
 
-
   return (
     <div className="App">
 
-      <input onChange={textOnChange} maxLength='7'></input>
-      <h4>{`Enter letters above. First letter will be center letter`}</h4>
+      <input onChange={textOnChange} maxLength='7' value={letters.replaceAll("_", "").toUpperCase()}></input>
+      <h4>{`Enter letters above. First letter will be center letter. No duplicates.`}</h4>
       <h1>{letters.toUpperCase()}</h1>
 
-      <Hive letters={letters}/>
+      <Hive letters={letters.toUpperCase()}/>
 
-      <WordList letters={letters}/>
+      <WordList letters={letters.toLowerCase()}/>
 
     </div>
   );
