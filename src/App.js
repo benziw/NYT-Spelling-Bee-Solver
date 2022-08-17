@@ -3,9 +3,12 @@ import Hive from './components/Hive';
 import { useState } from 'react';
 import WordList from './components/WordList';
 
+import Axios from 'axios';
+
 export default function App() {
 
   const [letters, setLetters] = useState('_______');
+  let lettersWordsJSON = {};
 
   const textOnChange = (e) => {
     let str = e.target.value;
@@ -14,6 +17,7 @@ export default function App() {
     }
     setLetters(str); 
   }
+
 
   return (
     <div className="App">
@@ -25,6 +29,7 @@ export default function App() {
       <Hive letters={letters}/>
 
       <WordList letters={letters}/>
+
     </div>
   );
 }
