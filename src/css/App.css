@@ -3,3 +3,21 @@
   width: 100vh;
   height: 100vh;
 }
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hiveContainer {
+
+}
+
+.lettersDisplay {
+  width: 100%;
+}
+
+.Hive {
+  width: 100%;
+  
+}

@@ -28,13 +28,22 @@ export default function App() {
   return (
     <div className="App">
 
-      <TextField onChange={textOnChange} maxLength='7' value={letters.replaceAll("_", "").toUpperCase()}></TextField>
-      <h4>{`Enter letters above. First letter will be center letter. No duplicates.`}</h4>
-      <h1>{letters.toUpperCase()}</h1>
+      <div className='header'></div>
 
-      <Hive letters={letters.toUpperCase()}/>
+      <div className='inputContainer'>
+        <TextField onChange={textOnChange} maxLength='7' value={letters.replaceAll("_", "").toUpperCase()}></TextField>
+        <h4>{`Enter letters above. First letter will be center letter. No duplicates.`}</h4>
+      </div>
 
-      <WordList letters={letters.toLowerCase()}/>
+      <div className='contentContainer'>
+        <div className='hiveContainer'>
+          <h1 className='lettersDisplay'>{letters.toUpperCase()}</h1>
+          <Hive letters={letters.toUpperCase()} />
+        </div>
+
+        <WordList letters={letters.toLowerCase()} />
+      </div>
+
 
     </div>
   );
