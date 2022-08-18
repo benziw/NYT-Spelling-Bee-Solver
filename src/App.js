@@ -5,6 +5,8 @@ import { useState } from 'react';
 import Hive from './components/Hive';
 import WordList from './components/WordList';
 
+import TextField from '@mui/material/TextField';
+
 
 export default function App() {
 
@@ -26,7 +28,7 @@ export default function App() {
   return (
     <div className="App">
 
-      <input onChange={textOnChange} maxLength='7' value={letters.replaceAll("_", "").toUpperCase()}></input>
+      <TextField onChange={textOnChange} maxLength='7' value={letters.replaceAll("_", "").toUpperCase()}></TextField>
       <h4>{`Enter letters above. First letter will be center letter. No duplicates.`}</h4>
       <h1>{letters.toUpperCase()}</h1>
 

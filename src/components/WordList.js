@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Axios from 'axios';
 
+import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export default function WordList(props) {
 
-  const [sevenLetters, setSevenLetters] = useState(false);
+  //const [sevenLetters, setSevenLetters] = useState(false);
   const [realWords, setRealWords] = useState([]);
   const letters = props.letters.replaceAll("_", "").split('').sort().join('');
 
@@ -13,12 +15,7 @@ export default function WordList(props) {
 
     //check sevenletters
     if (letters.length < 7) {
-      setSevenLetters(false);
-      //console.log('state changed');
       return null;
-    }
-    else {
-      setSevenLetters(true);
     }
 
     const getWordsPromise = Axios.get('http://localhost:3001/api/getWords').then((response) => {
@@ -32,18 +29,18 @@ export default function WordList(props) {
       setRealWords(words[letters] || [`no words found from letters '${letters.toUpperCase()}'`]);
     }
 
-
+    setRealWords(['loading...']);
     doRest();
-
   }
 
   return (
     <div className="wordListContainer">
-      <button onClick={getWordsOnClick}>get words</button>
-
-      {sevenLetters ?
-        null :
-        <p>must enter seven letters</p>
+      
+      {letters.length == 7 ?
+        (realWords[0] !== 'loading...' ? 
+          <Button onClick={getWordsOnClick} variant='contained'>get words</Button> :
+          <LoadingButton loading variant="outlined">loading...</LoadingButton>) :
+        <Button onClick={getWordsOnClick} variant='contained' disabled>get words</Button>
       }
 
       {realWords.map((word) => (
