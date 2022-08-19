@@ -1,0 +1,25 @@
+.wordListContainer {
+  padding: 21.440px;
+}
+
+.wordContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  width:40%;
+  margin: 5px 0px 5px 0px;
+  word-spacing: 100%;
+}
+
+.pWord {
+  text-align: left;
+}
+
+.pPangram {
+  text-align: right;
+  color: #f7da20;
+  font-weight: bold;
+}
