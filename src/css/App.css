@@ -8,24 +8,52 @@
   justify-items: center;
 }
 
+.header{
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .inputContainer {
   width: 100%;
+  height:100px;
 }
 
 .contentContainer {
-
-  width: 80%;
+  width: 100%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: top;
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 .hiveContainer {
-  
+
+  align-self: start;
+  justify-self: end;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.WordList {
+
+  align-self: start;
+  justify-self: start;
 }
 
 .hive {
-  transform: translateX(20%);
+  transform: translateX(0%); /* necessary for hive/hexes to be correct size/scale */
 }
 
 .lettersDisplay {
