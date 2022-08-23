@@ -15,8 +15,8 @@ function strToUniqueSorted(str) {
   return Array.from(new Set(str.split(''))).sort().join('');
 }
 
-function isPangram(str) {
-  return strToUniqueSorted(str) === strToUniqueSorted(str);
+function isPangram(str, ltrs) {
+  return strToUniqueSorted(str) === strToUniqueSorted(ltrs);
 }
 
 export default function App() {
