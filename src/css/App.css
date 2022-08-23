@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 .header{
@@ -13,7 +14,7 @@
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 }
 
 h1 {
@@ -21,50 +22,43 @@ h1 {
   margin-right: 10px;
 }
 
-.inputContainer {
-  width: 100%;
-  height:100px;
+.pangram {
+  color: #f7da21;
+  font-weight: bold;
 }
 
-.contentContainer {
-  width: 100%;
+.contentContainer{
+
+  width: 70%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: top;
+  grid-template-rows: 100px 271.23px;
   grid-auto-rows: minmax(min-content, max-content);
-}
 
-.hiveContainer {
-
-  align-self: start;
-  justify-self: end;
-
-  display: grid;
-  grid-template-columns: 1fr;
   justify-items: center;
+  align-items: baseline;
 }
 
-.WordList {
+.inputLetters{
+ 
+  border: none;
+  outline: none;
 
-  align-self: start;
-  justify-self: start;
-}
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.875em;
+  text-anchor: middle;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 9999;
+  fill: black;
 
-.hive {
-  transform: translateX(0%); /* necessary for hive/hexes to be correct size/scale */
-}
-
-.lettersDisplay {
-  width: 100%;
-}
-
-.Hive {
-  width: 100%;
-
+  align-self: center;
 }
 
 button {
-  margin-top: 21.5px;
+  height: 40px;
+
+  align-self: center;
 }

@@ -1,20 +1,18 @@
 .wordListContainer {
-  padding: 21.440px;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  grid-auto-rows: minmax(min-content, max-content);
-
-  padding: 10px;
+  width: 261px !important;
+  height: 271.23px !important;
 }
 
-.wordContainer {
-  width: 100%;
+ul {
+
+  height: 271.23px !important;  
+  list-style-type: none;
+
   display: flex;
-  justify-content: space-between;
+  flex-flow: column wrap;
 }
 
-button{
-  margin-bottom: 10px !important;
+li {
+  text-align: left;
 }

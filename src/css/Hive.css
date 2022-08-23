@@ -1,6 +1,12 @@
 .hive {
-  width: 261px;
-  height: 271px;
+  
+  width: 261px !important;
+  height: 271.23px !important;  
+  transform: translateX(0%);
+
+  max-height: 271.23px;
+
+  align-self: start;
 }
 
 svg {
@@ -12,30 +18,54 @@ svg:not(:root) {
   overflow: hidden !important;
 }
 
-.hex:nth-child(1) {
-  transform: translate(0, 0);
+.hive-cell{
+  position: absolute;
+  top: calc(100% / 3);
+  left: 30%;
+  width: 104.4px;
+  height: 90.41px;
+  z-index: 2;
 }
 
-.hex:nth-child(2) {
+.cell-letter{
+  font-weight: 700;
+  font-size: 1.875em;
+  text-anchor: middle;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 9999;
+  fill: black;
+}
+
+.hive-cell:nth-child(1) {
+  transform: translate(0, 0);
+  fill: #f7da21;
+}
+
+.hive-cell:nth-child(n+2) {
+  fill: #E6E6E6
+}
+
+.hive-cell:nth-child(2) {
   transform: translate(0, -100%);
 }
 
-.hex:nth-child(3) {
+.hive-cell:nth-child(3) {
   transform: translate(75%, -50%);
 }
 
-.hex:nth-child(4) {
+.hive-cell:nth-child(4) {
   transform: translate(75%, 50%);
 }
 
-.hex:nth-child(5) {
+.hive-cell:nth-child(5) {
   transform: translate(0, 100%);
 }
 
-.hex:nth-child(6) {
+.hive-cell:nth-child(6) {
   transform: translate(-75%, 50%);
 }
 
-.hex:nth-child(7) {
+.hive-cell:nth-child(7) {
   transform: translate(-75%, -50%);
 }
