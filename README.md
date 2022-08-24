@@ -1,4 +1,4 @@
-#live demo
+# live demo
 https://nyt-spelling-bee-solver-benziw.herokuapp.com/
 
 # instructions
